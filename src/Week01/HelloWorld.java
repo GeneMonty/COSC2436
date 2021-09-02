@@ -5,7 +5,10 @@ Date: 08/31/21
 Assignment Description: Hello Java World, gets Input for Name and salary then outputs the name
 to user and their new weekly salary.
 */
-package Week01;
+
+// comment out before submit
+package Week01; // vscode source package location
+
 import java.util.Scanner;
 
 public class HelloWorld {
