@@ -1,13 +1,14 @@
 /*
 Name: Eugenio Montealegre
 Course: COSC 2436
-Date: 08/31/21
-Assignment Description: Hello Java World, gets Input for Name and salary then outputs the name
+Date: 09/04/21
+Assignment Description: Hello Java World using Swing GUI, Gets user input firstName and weeklySalary then outputs the name
 to user and their new weekly salary.
 */
 
-// comment out before submit
+// Comment out package Week01 before submit 
 package Week01; // vscode source package location
+
 
 import javax.swing.*;
 //import java.util.*;
@@ -20,15 +21,15 @@ public class HelloWorldGui {
         String firstName = "";
         int weeklySalary = 0;
 
-        // Ask for user input
+        // Ask user for input using swing GUI library
         firstName = JOptionPane.showInputDialog("Hello, what is your name?");
-        // Display Greetings with user name, ask for salary
 
-        weeklySalary = Integer.parseInt(JOptionPane.showInputDialog("Nice to meet you " + firstName + ". What is your weekly Salary?"));
-        //JOptionPane.showMessageDialog(null,"Nice to meet you "+firstName+". What is your weekly Salary?");
-
-        // Perform Calculation
-        JOptionPane.showMessageDialog(null, "Thank you " + firstName + ", We will increase your weekly salary by 50 dollars. \nYour new weekly salary is: $" + (weeklySalary + 50));
+        // Display greetings to user and ask for weeklySalary
+        while (weeklySalary==0){
+        weeklySalary = Integer.parseInt(JOptionPane.showInputDialog("Nice to meet you " + firstName + ".\nWhat is your weekly Salary?"));
+        }
+        // Perform Calculation and update user on their new total.
+        JOptionPane.showMessageDialog(null, "Thank you " + firstName + "!. \nWe will increase your weekly salary by 50 dollars. \nYour new weekly salary is: $" + (weeklySalary + 50));
 
     }
 }
