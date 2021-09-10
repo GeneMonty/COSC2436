@@ -11,8 +11,9 @@ package Week01; // vscode source package location
 
 
 import javax.swing.*;
-//import java.util.*;
-//import java.io.*;
+import java.util.*;
+import java.io.*;
+
 
 public class HelloWorldGui {
     public static void main(String[] args) {
@@ -25,9 +26,8 @@ public class HelloWorldGui {
         firstName = JOptionPane.showInputDialog("Hello, what is your name?");
 
         // Display greetings to user and ask for weeklySalary
-        while (weeklySalary==0){
         weeklySalary = Integer.parseInt(JOptionPane.showInputDialog("Nice to meet you " + firstName + ".\nWhat is your weekly Salary?"));
-        }
+
         // Perform Calculation and update user on their new total.
         JOptionPane.showMessageDialog(null, "Thank you " + firstName + "!. \nWe will increase your weekly salary by 50 dollars. \nYour new weekly salary is: $" + (weeklySalary + 50));
 
