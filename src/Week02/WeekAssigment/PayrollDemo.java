@@ -2,24 +2,21 @@
 Name: Eugenio Montealegre
 Course: COSC 2436
 Date: 09/12/21
-Assignment Description: This program...
+Assignment Description: This program creates an Payroll object, asks the User to assings the
+a name, ID number, hours and payrate. Stores the correct input into the object and finally displays 
+the stored information to the user.
 */
-package Week02.WeekAssigment;
+package Week02.WeekAssigment; // comment out before submitting
 
 import java.util.Scanner;
-import java.util.regex.*;
-import java.lang.*;
-import java.math.*;
-import java.io.*;
+// import java.util.regex.*;
+// import java.lang.*;
+// import java.math.*;
+// import java.io.*;
 
 public class PayrollDemo {
-    public static void main(String[] args) throws Exception {
 
-        // Declare local Variables
-        String n1;      // local name variable
-        String id1;     // local id variable
-        int h1;         // local hours variable
-        double r1;      // local payrate variable
+    public static void main(String[] args) throws Exception {
 
         // Create a scanner called kb
         Scanner kb = new Scanner(System.in);
@@ -27,8 +24,35 @@ public class PayrollDemo {
         // Create ne Payroll Object
         Payroll employee1 = new Payroll();
 
-
         // While Conditiosn not met, to check for name.
+        askForName(kb, employee1);
+
+        // Get Employee ID from user.
+        askForID(kb, employee1);
+
+        //Get employee hours from user.
+        askForHours(kb, employee1);
+
+        // Get employee hours from user.
+        askForPayrate(kb, employee1);
+
+        // Calculate Weekly Salary
+        double wSalary = employee1.getHours() * employee1.getRate() * 5;
+
+        //Display Employee Informationto user.
+        displayResults(employee1, wSalary);
+
+        //Close kb scanner
+        kb.close();
+    }
+
+    //*************************
+    // Function Definitions
+    //*************************
+
+    // Function ask for name and checks input
+    private static void askForName(Scanner kb, Payroll employee1) {
+        String n1;
         while (true) {
             // Ask for employee Name
             System.out.println("Enter Employee Name: ");
@@ -40,79 +64,43 @@ public class PayrollDemo {
                 // if employee name is single char ask name again
             } else if (n1.length() <= 1) {
                 System.out.println("Name field cannot be Char, try again");
-                // Store name in Employee object and continue to next promp
+                // Save name in Payroll object and continue to next promp
             } else {
-                employee1.setName(n1);
+                employee1.setName(n1.toUpperCase());
+
                 break;
             }
         }
+    }
 
-        // 1.2 Get Eployee id from user account LLNNNN format
-        // Parse ID for correct LLNNN format,else throw exception
-        // id1=kb.nextLine();
-        // // id1.toUpperCase();
-        // System.out.println(id1);
-        // String firstTwo = id1.substring(0, 2);
-        // String lastFour = id1.substring(2);
-        // String firstTwo = id1.substring(0,2);
-
-        // System.out.println(firstTwo);
-        // System.out.println(lastFour);
-        // Pattern p = Pattern.compile("(([A-Z].*[0-9]))");
-        // Matcher m = p.matcher(id1);
-        // boolean b = m.find();
-        // System.out.println(b);
-
-        //!! Check for for values broken try having different values and concate
-
-        // while (true){
-
-        //     System.out.println("Enter Employee ID e.g[\"AB1234\"]: ");
-        //     id1=kb.nextLine();
-        //     String firstTwo = id1.substring(0, 2);
-        //     String lastFour = id1.substring(2);
-
-        //     if (id1.length()>6){
-        //         System.out.println("ID has more than 6 characters, try agian.");
-        //     } 
-        //     //
-        //     if (!firstTwo.matches("[a-zA-Z]")){
-        //         System.out.println("First two Characters ["+ firstTwo +"] are not letters, try again");
-
-        //     }else {
-        //         break;
-        //     }
-
-        //     if (!lastFour.matches(".*\\d.*")){
-        //         //String idf = id1.toUpperCase();
-        //         System.out.println("Last 4 Characters ["+ lastFour +"] must be digits, try again");
-        //         //break;
-        //     }
-        //     else{
-        //         System.out.println(lastFour);
-        //         employee1.setIdNumber(id1);
-        //         break;
-        //     }
-        // }
-
-        while (true){
+    // Function ask for ID number and checks format
+    private static void askForID(Scanner kb, Payroll employee1) {
+        String id1;
+        while (true) {
             System.out.println("Enter Employee ID e.g[\"AB1234\"]: ");
             id1 = kb.nextLine();
-            if(id1.length() != 6 || !Character.isLetter(id1.charAt(0)) ||
-            !Character.isLetter(id1.charAt(1)) || !Character.isDigit(id1.charAt(2)) ||
-            !Character.isDigit(id1.charAt(3)) || !Character.isDigit(id1.charAt(4)) ||
-            !Character.isDigit(id1.charAt(5))){
-                System.out.println("User Correct form for ID e.g[\"AB1234\"]: ");
-                System.out.println("Please try agian.\n");
-            }else {
-                
+            // Check if ID is
+            if (
+                id1.length() != 6 ||
+                !Character.isLetter(id1.charAt(0)) ||
+                !Character.isLetter(id1.charAt(1)) ||
+                !Character.isDigit(id1.charAt(2)) ||
+                !Character.isDigit(id1.charAt(3)) ||
+                !Character.isDigit(id1.charAt(4)) ||
+                !Character.isDigit(id1.charAt(5))) {
+                System.out.println("[!]Incorrect format. Correct form ID e.g[\"AB1234\"]");
+                System.out.println("Please try again.\n");
+            } else {
+                // Save ID number to Payroll object
                 employee1.setIdNumber(id1.toUpperCase());
                 break;
             }
         }
+    }
 
-
-        //Get employee hours from user.
+    // Function ask for hours to and checks inputs   
+    private static void askForHours(Scanner kb, Payroll employee1) {
+        int h1;
         while (true) {
             // Ask for Employee hours
             System.out.println("Enter Hours between [0-84]: ");
@@ -122,14 +110,17 @@ public class PayrollDemo {
                 System.out.println("[!]You entered [" + h1 + "], \n[!]Hours must be positive numbers between [0-84]");
                 System.out.println("Plese try again\n");
             } else {
-                // Store hours to employee object
+                // Save hours to Payroll object
                 employee1.setHours(h1);
                 break;
             }
 
         }
+    }
 
-        // Get employee hours from user.
+    // function ask for payrate and checks input
+    private static void askForPayrate(Scanner kb, Payroll employee1) {
+        double r1;
         while (true) {
             System.out.print("Enter Payrate. Between [0-25]: ");
             r1 = kb.nextDouble();
@@ -142,18 +133,12 @@ public class PayrollDemo {
             }
 
         }
+    }
 
-        // Calculate Weekly Salary
-        double wSalary = employee1.getHours() * employee1.getRate() * 5;
-
-        //Display Employee Informationto user.
+    // function display results
+    private static void displayResults(Payroll employee1, double wSalary) {
         System.out.println("\nResults");
         System.out.println("|Name: " + employee1.getName() + " \n|ID: " + employee1.getIdNumber());
         System.out.println("|Hours: " + employee1.getHours() + " \n|Payrate: $ " + employee1.getRate() + "\n|Weekly Salary: $ " + wSalary);
-
-        //Close kb scanner
-
-        kb.close();
     }
-
 }
