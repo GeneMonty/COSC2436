@@ -2,6 +2,7 @@ package Week02.WeekPractice;
 
 import java.util.Scanner;
 
+
 public class EmployeesDemo {
     public static void main(String[] args) throws Exception {
         Scanner kb = new Scanner(System.in);

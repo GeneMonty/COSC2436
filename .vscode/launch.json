@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Test",
+            "request": "launch",
+            "mainClass": "Week3.Practice.Test",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch ComputeFibonacci",
+            "request": "launch",
+            "mainClass": "Week3.Practice.ComputeFibonacci",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch ComputeFactorial",
+            "request": "launch",
+            "mainClass": "Week3.Practice.ComputeFactorial",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch PalindromeFinder",
+            "request": "launch",
+            "mainClass": "Week3.Submit.PalindromeFinder",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch PayrollDemo",
+            "request": "launch",
+            "mainClass": "Week02.WeekAssigment.PayrollDemo",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
             "name": "Launch EmployeesDemo",
             "request": "launch",
             "mainClass": "Week02.WeekPractice.EmployeesDemo",

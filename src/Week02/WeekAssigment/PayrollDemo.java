@@ -9,6 +9,7 @@ the stored information to the user.
 package Week02.WeekAssigment; // comment out before submitting
 
 import java.util.Scanner;
+
 // import java.util.regex.*;
 // import java.lang.*;
 // import java.math.*;
@@ -98,7 +99,7 @@ public class PayrollDemo {
         }
     }
 
-    // Function ask for hours to and checks inputs   
+    // Function ask for hours to and checks inputs
     private static void askForHours(Scanner kb, Payroll employee1) {
         int h1;
         while (true) {
