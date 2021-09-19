@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch PalindromeApp",
+            "request": "launch",
+            "mainClass": "Week3.Submit.PalindromeApp",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch PalindromeFinderDemoGUI",
+            "request": "launch",
+            "mainClass": "Week3.Submit.PalindromeFinderDemoGUI",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch PalindromeFinderDemo",
+            "request": "launch",
+            "mainClass": "Week3.Submit.PalindromeFinderDemo",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch RecursivePalindrome",
+            "request": "launch",
+            "mainClass": "Week3.Practice.RecursivePalindrome",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch RecursivePalindromeUsingSubstring",
+            "request": "launch",
+            "mainClass": "Week3.Submit.RecursivePalindromeUsingSubstring",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
             "name": "Launch Test",
             "request": "launch",
             "mainClass": "Week3.Practice.Test",
