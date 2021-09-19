@@ -2,44 +2,52 @@
 Name: Eugenio Montealegre
 Course: COSC 2436
 Date: 09/19/21
-Assignment Description: This program checks if a string is a palindrome or note using recursion.
+Assignment Description: This program uses GUI swing to checks if a string is a palindrome or note using recursion.
 */
 
-package Week3.Submit;
-import java.util.*;
+package Week3.Submit; // comment out before submit
+
+//import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
  
-
+// Palindrom App Class construction
 public class PalindromeApp extends JFrame implements ActionListener {
     
+    // init label and fields
+    private JLabel labelWelcome;
+    private JLabel labelDefinition;
     private JLabel labelInstruction;
-    private JLabel labelAskForWord;
     private JTextField fieldMyWord;
     private JButton buttonSubmit;
  
     public PalindromeApp() {
+        // App name in screen title
         super("Palindrome Finder");
  
         initComponents();
- 
-        setSize(400, 200);
+        // Set Windows Size
+        setSize(450, 250);
+        // make sure the app closes on exit
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         
     }
- 
+    // UI compente init
     private void initComponents() {
-        labelInstruction = new JLabel("Please enter a word to determine if it's a Palindrome");
-        labelAskForWord = new JLabel("GIVE ME YOUR WORD: ");
+        // declare component variables
+        labelWelcome = new JLabel("<html><style>p {text-align: justify;font-size:14px}</style> <p> <br>Welcome to Palindrome Finder</html>");
+        labelDefinition = new JLabel("<html><style>p {text-align: justify;font-size:10px}</style><p>Definition: pal·in·drome <br>A word, phrase, or sequence that<br> reads the same backward as forward.</html>", SwingConstants.CENTER );
+        labelInstruction = new JLabel("<html><style>p {text-align: center;font-size:12px}</style><p><br>Enter a word to determine if it is a Palindrome</html>");
         fieldMyWord = new JTextField(10);
-        buttonSubmit = new JButton("Palindrome?");
+        buttonSubmit = new JButton("<html><style>p {text-align: center;font-size:11px}</style><p>Palindrome?</html>");
  
         setLayout(new FlowLayout());
- 
+        // add components to layout
+        add(labelWelcome);
+        add(labelDefinition);
         add(labelInstruction);
-        add(labelAskForWord);
         add(fieldMyWord);
         add(buttonSubmit);
  
@@ -84,6 +92,7 @@ public class PalindromeApp extends JFrame implements ActionListener {
         }
     }
  
+    // Main creates the new app window.
     public static void main(String[] args) {
         new PalindromeApp().setVisible(true);
     }
