@@ -1,0 +1,72 @@
+package Week07;
+
+import java.util.function.ToIntFunction;
+
+public class exam {
+
+    // methods
+    public static boolean method(int[] a, int b, int c, int d) {
+        boolean e = false;
+
+        if (b > c)
+            e = false;
+        else {
+            int f = (b + c) / 2;
+
+            if (d == a[f])
+                e = true;
+            else if (d < a[f])
+                e = method(a, b, c - 1, d);
+            else if (d > a[f])
+                e = method(a, f + 1, c, d);
+        }
+        return e;
+    }
+
+    public static <T extends Comparable<T>> boolean gmethod(T[] a, T b, T c, T d) {
+        boolean e = false;
+        var b2 = ((Number) c).intValue();
+
+        if (b.compareTo(c) > 0) // b>c
+            e = false;
+        else {
+            Number f = ((((Number) b) + ((Number) c))) / 2;
+
+            if (b.compareTo(a[f]) == 0)
+                e = true;
+            else if (d.compareTo(a[f]) < 0)
+                e = gmethod(a, b, c - 1, d);
+            else if (d.compareTo(a[f]) > 0)
+                e = gmethod(a, f + 1, c, d);
+        }
+        return e;
+    }
+
+    public static <T extends Comparable<T>> boolean midpoint( T[] a, T b, T c ,T d){
+
+        int b2 = ((Number)c).intValue();
+        int c2= ((Number) c).intValue();
+        int d2 = ((Number) d).intValue();
+        boolean e = false;
+        
+        if (b.compareTo(c) > 0) {e = false;}
+        
+        else {
+        int f = (b2 + c2)/2;
+        if( d.compareTo(a[f]) < 0)
+        {e = true;}
+        else if (d.compareTo(a[f])<0) {
+            e = a.get(midpoint(a,b,c-1,d));}
+        else if (d.compareTo(a[f])>0) {
+            e = midpoint(a,f+1,c,d);}
+        }
+        return e;
+        }
+    
+
+    public static void main(String[] args) {
+
+        int e = method(10, 1, 2, 3);
+        System.out.println(method(10, 2, 4, 6));
+    }
+}

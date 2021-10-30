@@ -6,6 +6,70 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch randomNumGene",
+            "request": "launch",
+            "mainClass": "Week08.randomNumGene",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch primeDemo",
+            "request": "launch",
+            "mainClass": "Week07.Submit.primeDemo",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch RecursivePalindromeUsingSubstring",
+            "request": "launch",
+            "mainClass": "Week3.Practice.RecursivePalindromeUsingSubstring",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch charCounter",
+            "request": "launch",
+            "mainClass": "Week07.charCounter",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinkedList",
+            "request": "launch",
+            "mainClass": "Week05_06.Submit.LinkedList",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch GenericsDemo",
+            "request": "launch",
+            "mainClass": "Week04.Submit.GenericsDemo",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch generics",
+            "request": "launch",
+            "mainClass": "Week04.Submit.generics",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch lectureCh19",
+            "request": "launch",
+            "mainClass": "Week04.Notes.lectureCh19",
+            "projectName": "COSC2436_2502cd1b"
+        },
+        {
+            "type": "java",
+            "name": "Launch javaFXHelloWorld",
+            "request": "launch",
+            "mainClass": "Week3.Practice.javaFXHelloWorld",
+            "projectName": "COSC2436_2502cd1b",
+            "vmArgs": "--module-path /Users/eugen/javaFX/javafx-sdk-17.0.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Launch PalindromeApp",
             "request": "launch",
             "mainClass": "Week3.Submit.PalindromeApp",

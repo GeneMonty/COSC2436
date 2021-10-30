@@ -1,0 +1,215 @@
+/*
+​
+Micah Stolte
+​
+COSC-2436 2801
+​
+10102021
+​
+Assignment #5: Using linked lists to perform the actions of checking if the list is empty, checking the size of the list, adding data to the
+list, initializing data in a specific location in a list, removing an item based on its value from a list, outputting contents of a list,
+and allowing the list to include integers, doubles, and strings.
+​
+-----------------------------------------CODE START-----------------------------------------*/
+​
+package linkedlists;
+​
+​
+class LinkedList1<T> 
+{
+​
+	private class Node		// Initializing Node class
+	{
+		T value;
+		Node next;
+		
+		Node(T e, Node n)
+		{
+			value = e;
+			next = n;
+		}
+		
+		Node(T e)
+		{
+			this(e, null);
+		}
+	}
+	
+	private Node first; // list head
+	private Node last;	// last list element
+	
+	
+	
+	public LinkedList1()	// constructor
+	{
+		first = null;
+		last = null;
+	}
+	
+	
+	
+	public boolean isEmpty()		// Check for data in placement in list
+	{
+		return first == null;
+	}
+	
+	
+	
+	public int size()		// Check size of list
+	{
+		int count = 0;
+		Node p = first;
+		while (p != null)
+		{
+			count++;
+			
+		}
+		return count;
+	}
+	
+	
+	
+	public void add(T string)		// Check before add
+	{
+		if (isEmpty())
+		{
+			first = new Node (string);
+			last = first;
+		}
+		else
+		{
+			last.next = new Node(string);
+			last = last.next;
+		}
+	}
+	
+	
+	
+	public void add(int index, T e)			// Adding data to the list
+	{
+		if(index <0 || index > size())
+		{
+			String message = String.valueOf(index);
+			throw new IndexOutOfBoundsException(message);
+		}
+		
+		if(index == 0)
+		{
+			first = new Node(e, first);
+			if(last == null)
+			{
+				last = first;
+			}
+			return;
+		}
+	
+		Node pred = first;
+		for(int k = 1; k <= index - 1; k++)
+		{
+			pred = pred.next;
+		}
+		
+		pred.next = new Node(e, pred.next);
+		
+		if(pred.next.next == null)
+		{
+			last = pred.next;
+		}
+	}
+	
+	
+	
+	public String toString()		// Building values to strings
+	{
+		StringBuilder strBuilder = new StringBuilder();
+		
+		Node p = first;
+		
+		while(p != null)
+		{
+			strBuilder.append(p.value + "\n");
+			p = p.next;
+		}
+		return strBuilder.toString();
+	}
+	
+	
+	
+	public T remove(int index)		// Removing data from the list
+	{
+		if(index < 0 || index >= size())
+		{
+			String message = String.valueOf(index);
+			throw new IndexOutOfBoundsException(message);
+		}
+		
+		T element;
+		if(index == 0)
+		{
+			element = first.value;
+			first = first.next;
+			if(first == null)
+			{
+				last = null;
+			}
+		}
+		else
+		{
+			Node pred = first;
+			
+			for(int k = 1; k <= index - 1; k++)
+			{
+				pred = pred.next;
+			}
+			
+			element = pred.next.value;
+			
+			pred.next = pred.next.next;
+			
+			if(pred.next == null)
+			{
+				last = pred;
+			}
+		}
+		return element;
+	}
+	
+	public boolean remove(T element)		// Check before removal
+	{
+		if(isEmpty())
+		{
+			return false;
+		}
+		
+		if(element.equals(first.value)) 
+		{
+			first = first.next;
+			if(first == null)
+			{
+				last = null;
+			}
+			return true;
+		}
+		
+		Node pred = first;
+		while(pred.next != null && !pred.next.value.equals(element))
+		{
+			pred = pred.next;
+		}
+		if(pred.next == null)
+		{
+			return false;
+		}
+		
+		pred.next = pred.next.next;
+		
+		if(pred.next == null)
+		{
+			last = pred;
+		}
+		
+		return  true;
+	}
+}
+​
+​
